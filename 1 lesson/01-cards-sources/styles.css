@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: rgb(104, 34, 34);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+}
+.car,
+.city {
+  border-radius: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: #fff;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: all 500ms ease-in-out;
+}
+.car h3,
+.city h3 {
+  position: absolute;
+  font-size: 24px;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+.car.active,
+.city.active {
+  flex: 10;
+}
+.car.active h3,
+.city.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+.container > .car,
+.container > .city {
+  height: 5vh;
+}
+.container--active > .car,
+.container--active > .city {
+  height: 85vh;
+}
+
+.toggle {
+  position: relative;
+}
+.button {
+  display: block;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+.button::before,
+.button::after {
+  top: 6px;
+  left: 0px;
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  background: #1a188d;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in 0.4s;
+}
+
+.button::before {
+  left: 10px;
+  transform: rotate(-45deg);
+}
+.button::after {
+  transform: rotate(45deg);
+}
+.button--top::before {
+  transform: rotate(45deg);
+}
+.button--top::after {
+  transform: rotate(-45deg);
+}
